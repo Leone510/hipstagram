@@ -10,12 +10,12 @@ const tiltOptions = {
    "max-glare": 1
 }
 
-export const Modal = () => {
+export const Modal = ({children}) => {
 
    return (
       <Title className="tilt" options={tiltOptions}>
          <div className={styles.modal}>
-            <h1>TEST</h1>
+            {children}
          </div>
       </Title>
    )

@@ -1,0 +1,15 @@
+.link {
+  color: rgba(0, 255, 255, 0.2);
+  text-decoration: underline;
+  cursor: pointer;
+  transition: linear 1s;
+  border-radius: 10px;
+  font-size: 1.5rem;
+
+  &:hover {
+    color: aqua;
+    filter: drop-shadow(0 0 5px rgb(0, 255, 255))
+      drop-shadow(0 0 10px rgb(0, 255, 255))
+      drop-shadow(0 0 15px rgb(0, 255, 255));
+  }
+}
