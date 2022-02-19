@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/hipstagram/static/css/main.3087b5b3.css",
+    "main.js": "/hipstagram/static/js/main.6bc2f534.js",
+    "index.html": "/hipstagram/index.html",
+    "main.3087b5b3.css.map": "/hipstagram/static/css/main.3087b5b3.css.map",
+    "main.6bc2f534.js.map": "/hipstagram/static/js/main.6bc2f534.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3087b5b3.css",
+    "static/js/main.6bc2f534.js"
+  ]
+}
