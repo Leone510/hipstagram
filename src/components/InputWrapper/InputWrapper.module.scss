@@ -9,5 +9,8 @@
 }
 
 .error {
-  color: rgba(255, 0, 0, 0.3);
+  color: rgba(255, 0, 100, 0.3);
+  filter: drop-shadow(0 0 5px rgb(255, 0, 100))
+    drop-shadow(0 0 10px rgb(255, 0, 100))
+    drop-shadow(0 0 15px rgb(255, 0, 100));
 }

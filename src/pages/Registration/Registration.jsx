@@ -1,13 +1,12 @@
-import { Form } from "../../components/Form/Form"
-import { Modal } from "../../components/Modal/Modal"
-import { LinkButton } from "../../components/LinkButton/LinkButton"
-import { Button } from "../../components/Button/Button"
+import { Form } from "../../components/Form/Form";
+import { Modal } from "../../components/Modal/Modal";
+import { LinkButton } from "../../components/LinkButton/LinkButton";
 
 export const Registration = () => {
 
    const buttons = [
-      <LinkButton href="#">To Login Form</LinkButton>,
-      <LinkButton href="#">SEND</LinkButton>
+      <LinkButton key="toForm" href="#">To Login Form</LinkButton>,
+      <LinkButton key="send" href="#">SEND</LinkButton>
    ]
 
    return (
