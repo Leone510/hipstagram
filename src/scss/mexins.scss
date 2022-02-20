@@ -1,0 +1,12 @@
+@mixin lowShine($color) {
+  filter: drop-shadow(0 0 5px $color);
+}
+
+@mixin midShine($color) {
+  filter: drop-shadow(0 0 5px $color) drop-shadow(0 0 10px $color);
+}
+
+@mixin highShine($color) {
+  filter: drop-shadow(0 0 5px $color) drop-shadow(0 0 10px $color)
+    drop-shadow(0 0 15px $color);
+}

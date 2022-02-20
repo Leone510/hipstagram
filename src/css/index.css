@@ -1,0 +1,47 @@
+body {
+  font-family: "Montserrat", sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #030314;
+  background: linear-gradient(315deg, #030314 13%, #151832 100%);
+  overflow: hidden;
+}
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: max(40vw, 40vh);
+  height: max(40vw, 40vh);
+  background: #00f7ff;
+  background: radial-gradient(circle, rgba(0, 247, 255, 0.5) 0%, rgba(0, 247, 255, 0) 70%);
+  z-index: -1;
+}
+body::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: max(40vw, 40vh);
+  height: max(40vw, 40vh);
+  background: #e900ff;
+  background: radial-gradient(circle, rgba(233, 0, 255, 0.7) 0%, rgba(233, 0, 255, 0) 70%);
+  z-index: -1;
+}
+
+.tilt {
+  padding: 0 !important;
+  margin: 0 !important;
+  width: auto !important;
+  background: transparent !important;
+}

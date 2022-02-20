@@ -2,19 +2,18 @@ import { Form } from "../../components/Form/Form";
 import { Modal } from "../../components/Modal/Modal";
 import { Button } from "../../components/Button/Button";
 
-export const Registration = () => {
+export const Login = () => {
 
    const buttons = [
-      <Button key="toLogin" href="#">To Login Form</Button>,
+      <Button key="toRegistration" href="#">To Registration Form</Button>,
       <Button key="send" href="#">SEND</Button>
    ]
 
    return (
       <Modal>
-         <Form page='registration' buttons={buttons}>
+         <Form page='login' buttons={buttons}>
             {[
                "Login",
-               "Email",
                "Password"
             ]}
          </Form>
