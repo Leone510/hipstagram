@@ -2,15 +2,15 @@ import { Button } from "../../components/Button/Button"
 import { Message } from "../../components/Message/Message"
 import { Modal } from "../../components/Modal/Modal"
 
-export const ErrorMessage = ({href, message}) => {
+export const ConfirmMessage = ({href, message}) => {
 
    const buttons = [
-      <Button href="#">Ok</Button>,
+      <Button key="confirm" href="#">Ok</Button>,
    ]
 
    return (
       <Modal >
-         <Message error color="red" title="error" buttons={buttons}>
+         <Message title="confirm" buttons={buttons}>
             {message}
          </Message>
       </Modal>
