@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/hipstagram/static/css/main.a4d5d08a.css",
-    "main.js": "/hipstagram/static/js/main.ff904850.js",
+    "main.css": "/hipstagram/static/css/main.5b076379.css",
+    "main.js": "/hipstagram/static/js/main.3217d188.js",
     "index.html": "/hipstagram/index.html",
-    "main.a4d5d08a.css.map": "/hipstagram/static/css/main.a4d5d08a.css.map",
-    "main.ff904850.js.map": "/hipstagram/static/js/main.ff904850.js.map"
+    "main.5b076379.css.map": "/hipstagram/static/css/main.5b076379.css.map",
+    "main.3217d188.js.map": "/hipstagram/static/js/main.3217d188.js.map"
   },
   "entrypoints": [
-    "static/css/main.a4d5d08a.css",
-    "static/js/main.ff904850.js"
+    "static/css/main.5b076379.css",
+    "static/js/main.3217d188.js"
   ]
 }
