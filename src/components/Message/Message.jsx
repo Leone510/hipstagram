@@ -1,6 +1,7 @@
+import { Button } from "../Button/Button";
 import styles from "./Message.module.scss";
 
-export const Message = ({title, error, buttons, children}) => {
+export const Message = ({title, error, href, children}) => {
 
    return (
       <div className={styles.box}>
@@ -16,7 +17,7 @@ export const Message = ({title, error, buttons, children}) => {
          </div>
 
          <div className={styles.buttons}>
-            {buttons}
+            <Button href="#">Ok</Button>
          </div>
       </div>
    )
