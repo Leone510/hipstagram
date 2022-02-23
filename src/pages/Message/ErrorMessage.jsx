@@ -1,13 +1,11 @@
 import { Message } from "../../components/Message/Message"
 import { Modal } from "../../components/Modal/Modal"
 
-export const ConfirmMessage = ({href, message}) => {
+export const ErrorMessage = (props) => {
 
    return (
       <Modal >
-         <Message href={href} title="confirm">
-            {message}
-         </Message>
+         <Message error title="ERROR" {...props}/>
       </Modal>
    )
 }

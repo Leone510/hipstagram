@@ -1,13 +1,13 @@
 import React from "react";
 import { Navigate } from "react-router";
-import { Login } from '../containers/Login/Login';
-import { ConfirmMessage } from '../containers/Message/ConfirmMessage';
-import { ErrorMessage } from '../containers/Message/ErrorMessage';
-import { Registration } from '../containers/Registration/Registration';
+import { Login } from '../pages/Login/Login';
+import { ConfirmMessage } from '../pages/Message/ConfirmMessage';
+import { ErrorMessage } from '../pages/Message/ErrorMessage';
+import { Registration } from '../pages/Registration/Registration';
 
 export const appRouteMap = {
    login: {
-      path: '/Login',
+      path: '/login',
       component: <Login key="login"/>,
    },
 
@@ -18,13 +18,13 @@ export const appRouteMap = {
       ]
    },
    confirm: {
-      path: '/confirm',
+      path: '/confirm/:authMessage',
       component: [
-         <ConfirmMessage key="confirm"/>
+         <ConfirmMessage key="message"/>
       ]
    },
    error: {
-      path: '/error',
+      path: '/error/:authMessage',
       component: [
          <ErrorMessage key="error"/>
       ]
