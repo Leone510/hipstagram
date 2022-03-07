@@ -22,10 +22,11 @@ export const Login = () => {
       setPreload(false)
    }, [])
 
-   const onSubmit = (data) => {
+   const onSubmit = async (data) => {
       reset();
       setPreload(true);
-      dispatch(loginThunk(data));
+      await dispatch(loginThunk(data));
+      navigate("/rootPage");
    }
 
    const onError = (data) => {
@@ -68,7 +69,7 @@ export const Login = () => {
                      To Registration Form
                   </Button>
 
-                  <Button type="submit">SEND</Button>
+                  <Button type="submit">LOGIN</Button>
                </div>
             </form>}
       </Modal>

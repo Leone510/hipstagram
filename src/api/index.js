@@ -1,4 +1,5 @@
 import axios from "axios";
+import { UseLogout } from "../customHooks/UseLogout";
 
 const api = axios.create({
    baseURL: 'https://hipstagram-api.herokuapp.com',
@@ -16,11 +17,11 @@ api.interceptors.request.use(config => {
 api.interceptors.response.use((response) => {
    return response.data;
 }, (error) => {
-   // if (error.response.status === 401) {
-   //    localStorage.removeItem('token');
-   //    store.dispatch(userActions.logOut());
-   //    return;
-   // }
+   if (error.response.status === 401) {
+      const logout = UseLogout();
+      logout();
+      return;
+   }
    const lol = Promise.reject(error);
    return lol;
 });

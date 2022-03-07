@@ -1,20 +1,24 @@
 import styles from "./RootPage.module.scss";
-import { useDispatch } from "react-redux";
-import { WrapperContainer } from "../../components/WrapperContainer/WrapperContainer";
-import { Button } from "../../components/Button/Button";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router";
-import { authActions } from "../../store/auth/actionTypes";
+import { Header } from "./Header/Header";
+import { Main } from "./Main/Main";
 
-export const RootPage = ({token}) => {
-   const dispatch = useDispatch();
-   const handleLogout = () => {
-      dispatch(authActions.logout())
-   };
+export const RootPage = () => {
+   const {token} = useSelector(store => store.auth);
+   const navigate = useNavigate();
+
+   useEffect(() => {
+      console.log(token);
+      if (token === null) navigate("/login");
+   }, []);
 
    return (
-      <WrapperContainer className={styles.rootPage}>
-         <h1>{token}</h1>
-         <Button onClick={handleLogout}>To Login</Button>
-      </WrapperContainer>
+      <div className={styles.rootPage}>
+         <Header/>
+         <Main/>
+      </div>
+      
    )
 }

@@ -4,8 +4,14 @@ import { Login } from '../pages/Login/Login';
 import { ConfirmMessage } from '../pages/Message/ConfirmMessage';
 import { ErrorMessage } from '../pages/Message/ErrorMessage';
 import { Registration } from '../pages/Registration/Registration';
+import { RootPage } from "../pages/RootPage/RootPage";
 
 export const appRouteMap = {
+   rootPage: {
+      path: '/rootPage',
+      component: <RootPage/>,
+   },
+
    login: {
       path: '/login',
       component: <Login key="login"/>,
@@ -32,7 +38,7 @@ export const appRouteMap = {
 
    default: {
       path: '*',
-      component: <Navigate to='/login'/>
+      component: <Navigate to='/rootPage'/>
    },
 
 }

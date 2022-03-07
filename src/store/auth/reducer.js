@@ -1,22 +1,19 @@
 const initialState = {
-   isAuth: false,
-   token: null,
+   token: localStorage.getItem('hipstagramToken') !== null 
+      ? localStorage.getItem('hipstagramToken') 
+      : null,
 }
 
 const storeControl = {
    LOGIN: (state, payload) => {
-      console.log('reducer: ', payload);
-      
       return {
          ...state,
-         isAuth: true,
          token: payload,
       }
    },
    LOGOUT: (state) => {
       return {
          ...state,
-         isAuth: false,
          token: null,
       }
    },

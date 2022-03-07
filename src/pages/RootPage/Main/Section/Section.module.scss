@@ -1,0 +1,15 @@
+@import "../../../../scss/mexins.scss";
+
+.section {
+  height: 100%;
+  padding: 5px 0 5px 5px;
+  flex-grow: 1;
+
+  &Box {
+    height: 100%;
+    padding: 10px;
+    border-radius: 20px;
+
+    @include background();
+  }
+}
