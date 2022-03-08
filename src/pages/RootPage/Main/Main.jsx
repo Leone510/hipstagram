@@ -1,7 +1,7 @@
 import styles from "./Main.module.scss";
-import { WrapperContainer } from "../../../components/WrapperContainer/WrapperContainer"
+import { WrapperContainer } from "../../../components/WrapperContainer/WrapperContainer";
 import { Aside } from "./Aside/Aside";
-import { Section } from "./Section/Section"
+import { Section } from "./Section/Section";
 
 export const Main = () => {
 

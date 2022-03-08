@@ -1,7 +1,6 @@
-import { useState } from "react";
 import styles from "./Followers.module.scss";
 
-export const Followewrs = ({active, setActive}) => {
+export const Followers = ({active, setActive}) => {
 
    const handleSetActive = () => {
       setActive(true);

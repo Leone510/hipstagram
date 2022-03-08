@@ -1,5 +1,6 @@
 import axios from "axios";
 import { UseLogout } from "../customHooks/UseLogout";
+import store from '../store';
 
 const api = axios.create({
    baseURL: 'https://hipstagram-api.herokuapp.com',
@@ -10,7 +11,7 @@ const api = axios.create({
 })
 
 api.interceptors.request.use(config => {
-   config.headers['Authorization'] = "";
+   config.headers['Authorization'] = store.getState().auth.token;
    return config;
 })
 
@@ -34,9 +35,15 @@ export const registrationUserRequest = (data) => {
 }
 
 export const loginUserRequest = (data) => {
-   console.log(data)
    return api.post(
       '/auth/login',
+      data,
+   )
+}
+
+export const getCurrentUser = (data) => {
+   return api.get(
+      '/users/current',
       data,
    )
 }

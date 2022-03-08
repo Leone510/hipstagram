@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styles from "./FollowContainer.module.scss";
-import { Followewrs } from "./Followers/Followers";
+import { Followers } from "./Followers/Followers";
 import { Following } from "./Following/Following";
 
 export const FollowContainer = () => {
@@ -8,7 +8,7 @@ export const FollowContainer = () => {
 
    return (
       <div className={styles.follow}>
-         <Followewrs 
+         <Followers 
             active={activeFollowers}
             setActive={setActiveFollowers}
          />

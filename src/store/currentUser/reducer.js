@@ -8,6 +8,7 @@ const initialState = {
    posts: null,
    followers: null,
    following: null,
+   preload: true
 }
 
 const storeControl = {
@@ -23,6 +24,7 @@ const storeControl = {
          posts: payload.posts,
          followers: payload.followers,
          following: payload.following,
+         preload: true,
       }
    },
    

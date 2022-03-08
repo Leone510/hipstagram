@@ -1,4 +1,3 @@
-import { useState } from "react";
 import styles from "./Following.module.scss";
 
 export const Following = ({active, setActive}) => {

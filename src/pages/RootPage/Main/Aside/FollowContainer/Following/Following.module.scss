@@ -12,11 +12,10 @@
     padding: 10px;
     font-size: 1.5rem;
     cursor: pointer;
-    transition: 0.5s;
 
     & p {
-      color: $red;
-      @include lowShine($red);
+      color: rgba($aqua, 0.3);
+      @include lowShine($aqua);
     }
 
     @include backgroundLight();
@@ -26,11 +25,12 @@
 .active {
   width: 100%;
   height: calc(100% - 50px);
+  transition: all 0.5s linear;
 
   .title {
     & p {
       color: $aqua;
-      @include lowShine($aqua);
+      @include midShine($aqua);
     }
   }
 }
