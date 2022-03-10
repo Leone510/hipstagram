@@ -1,5 +1,5 @@
 import { useNavigate, useParams } from "react-router";
-import { Button } from "../Button/Button";
+import { Button } from "../buttons/Button/Button";
 import styles from "./Message.module.scss";
 
 export const Message = ({title, error, path}) => {

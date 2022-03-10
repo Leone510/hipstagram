@@ -1,6 +1,5 @@
 import styles from "../../components/AuthContainer/AuthContainer.module.scss";
 import { Modal } from "../../components/Modal/Modal";
-import { Button } from "../../components/Button/Button";
 import { useNavigate } from "react-router";
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -8,6 +7,7 @@ import { regSchema as schema } from "../../data/schema";
 import { registrationUserRequest } from "../../api";
 import { Preload } from "../../components/Preload/Preload";
 import { useEffect, useState } from "react";
+import { Button } from "../../components/buttons/Button/Button";
 
 export const Registration = () => {
    const {register, handleSubmit, reset, formState: { errors }} = useForm({

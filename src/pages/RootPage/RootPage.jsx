@@ -2,7 +2,7 @@ import styles from "./RootPage.module.scss";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
-import { Header } from "./Header/Header";
+import { Header } from "../../components/Header/Header";
 import { Main } from "./Main/Main";
 import { currentUserThunk } from "../../store/thunks/currentUserThunk";
 
@@ -20,7 +20,7 @@ export const RootPage = () => {
 
    return (
       <div className={styles.rootPage}>
-         <Header/>
+         <Header page="home"/>
          <Main userData={userData}/>
       </div>
       

@@ -1,10 +1,12 @@
 import React from "react";
 import { Navigate } from "react-router";
+import { CreatePost } from "../pages/CreatePost/CreatePost";
 import { Login } from '../pages/Login/Login';
 import { ConfirmMessage } from '../pages/Message/ConfirmMessage';
 import { ErrorMessage } from '../pages/Message/ErrorMessage';
 import { Registration } from '../pages/Registration/Registration';
 import { RootPage } from "../pages/RootPage/RootPage";
+import { SettingPage } from "../pages/SettingPage/SettingPage";
 
 export const appRouteMap = {
    rootPage: {
@@ -23,17 +25,29 @@ export const appRouteMap = {
          <Registration key="registration"/>
       ]
    },
+
    confirm: {
       path: '/confirm/:authMessage',
       component: [
          <ConfirmMessage key="message"/>
       ]
    },
+
    error: {
       path: '/error/:authMessage',
       component: [
          <ErrorMessage key="error"/>
       ]
+   },
+
+   createPost: {
+      path: '/createPost',
+      component: <CreatePost/>,
+   },
+
+   settingPage: {
+      path: '/settingPage',
+      component: <SettingPage/>,
    },
 
    default: {
