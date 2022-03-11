@@ -6,9 +6,9 @@ export const Logotype = () => {
       <div className={styles.logotype}>
          <div className={styles.imgBox}>
             <img 
-            className={styles.img}
-            src={process.env.PUBLIC_URL + '/img/logo.png'} 
-            alt="logotype" 
+               className={styles.img}
+               src={process.env.PUBLIC_URL + '/img/logo.png'} 
+               alt="logotype" 
             />
          </div>
         

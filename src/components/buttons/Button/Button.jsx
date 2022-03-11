@@ -1,9 +1,13 @@
 import styles from "./Button.module.scss";
 
-export const Button = ({children, ...props}) => {
+export const Button = ({children, active, ...props}) => {
 
    return (
-      <button className={styles.button} {...props}>
+      <button className={
+         active
+            ? [styles.button, styles.active].join(" ")
+            : styles.button
+      } {...props}>
          {children}
       </button>
    )

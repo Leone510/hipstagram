@@ -16,3 +16,8 @@
     @include highShine($aqua);
   }
 }
+
+.active {
+  color: $aqua;
+  @include highShine($aqua);
+}
