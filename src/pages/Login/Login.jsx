@@ -1,4 +1,3 @@
-import styles from "../../components/AuthContainer/AuthContainer.module.scss";
 import { Modal } from "../../components/Modal/Modal";
 import { useNavigate } from "react-router";
 import { useForm } from "react-hook-form";
@@ -9,6 +8,9 @@ import { Preload } from "../../components/Preload/Preload";
 import { useDispatch } from "react-redux";
 import { loginThunk } from "../../store/thunks/loginThunk";
 import { Button } from "../../components/buttons/Button/Button";
+import { Form } from "../../components/Form/Form";
+import { InputWrapper } from "../../components/InputWrapper/InputWrapper";
+import { Input } from "../../components/Input/Input";
 
 export const Login = () => {
    const {register, handleSubmit, reset, formState: { errors }} = useForm({
@@ -29,49 +31,37 @@ export const Login = () => {
       navigate("/rootPage");
    }
 
-   const onError = (data) => {
-      console.log("error: ", data);
-   }
+   const buttons = [
+      <Button onClick={() => navigate("/registration")} key="navigate">
+         To Registration Form
+      </Button>,
+
+      <Button type="submit" key="submit">LOGIN</Button>
+   ]
 
    return (
       <Modal>
          { preload
             ? <Preload/>
-            : <form className={styles.form} onSubmit={handleSubmit(onSubmit, onError)}>
-               <h1 className={styles.title}>
-                  LOGIN
-               </h1>
+            : <Form title="Login" onSubmit={handleSubmit(onSubmit)} buttons={buttons}>
 
-               <div className={styles.body}>
-                  <div className={styles.wrapper}>
-                     <h2 className={styles.title}>
-                        Login
-                     </h2>
-                     <input className={styles.input} {...register('login')}/>
-                     <h5 className={styles.error}>
-                        {!!errors.login?.message ? errors.login?.message : " "}
-                     </h5>
-                  </div>
+               <InputWrapper
+                  fieldName="Login"
+                  error={!!errors.login?.message ? errors.login?.message : " "}
+               >
+                  <Input {...register('login')}/>
+               </InputWrapper>
+               
 
-                  <div className={styles.wrapper}>
-                     <h2 className={styles.title}>
-                        Password
-                     </h2>
-                     <input className={styles.input} {...register('password')}/>
-                     <h5 className={styles.error}>
-                        {!!errors.password?.message ? errors.password?.message : " "}
-                     </h5>
-                  </div>
-               </div>
+               <InputWrapper 
+                  fieldName="Password"
+                  error={!!errors.password?.message ? errors.password?.message : " "}
+               >
+                  <Input {...register('password')}/>
+               </InputWrapper>
+              
 
-               <div className={styles.buttons}>
-                  <Button onClick={() => navigate("/registration")} key="toReg">
-                     To Registration Form
-                  </Button>
-
-                  <Button type="submit">LOGIN</Button>
-               </div>
-            </form>}
+            </Form>}
       </Modal>
    )
 }

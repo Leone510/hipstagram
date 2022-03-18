@@ -1,0 +1,19 @@
+@import "../../scss/variables.scss";
+@import "../../scss/mexins.scss";
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .title {
+    color: rgba(255, 255, 255, 0.15);
+    flex: 0 0 30px;
+    line-height: 30px;
+  }
+}
+
+.error {
+  color: $red;
+  @include midShine($red);
+}
