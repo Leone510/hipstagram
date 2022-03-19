@@ -7,7 +7,7 @@ export const AvatarContainer = () => {
    const navigate = useNavigate();
 
    const toSetting = () => {
-      navigate("/settingPage");
+      navigate("/userPage");
    }
 
    const nameSurname = (name, surname) => {

@@ -27,8 +27,13 @@ export const Login = () => {
    const onSubmit = async (data) => {
       reset();
       setPreload(true);
-      await dispatch(loginThunk(data));
-      navigate("/rootPage");
+      try {
+         await dispatch(loginThunk(data));
+         navigate("/rootPage");
+      } catch (promise) {
+         const errorMessage = promise.response.data
+         navigate(`/error/${errorMessage}`)
+      }
    }
 
    const buttons = [

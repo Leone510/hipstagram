@@ -39,7 +39,7 @@ export const Registration = () => {
       <Button onClick={() => navigate("/login")} key="navigate">
          To Login Form
       </Button>,
-      <Button type="submit" key="subnit">SEND</Button>
+      <Button type="submit" key="submit">SEND</Button>
    ]
 
    return (

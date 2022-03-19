@@ -6,7 +6,8 @@ import { ConfirmMessage } from '../pages/Message/ConfirmMessage';
 import { ErrorMessage } from '../pages/Message/ErrorMessage';
 import { Registration } from '../pages/Registration/Registration';
 import { RootPage } from "../pages/RootPage/RootPage";
-import { SettingPage } from "../pages/SettingPage/SettingPage";
+import { SetUser } from "../pages/SetUser/SetUser";
+import { UserPage } from "../pages/UserPage/UserPage";
 
 export const appRouteMap = {
    rootPage: {
@@ -45,9 +46,14 @@ export const appRouteMap = {
       component: <CreatePost/>,
    },
 
-   settingPage: {
-      path: '/settingPage',
-      component: <SettingPage/>,
+   userPage: {
+      path: '/userPage',
+      component: <UserPage/>,
+   },
+
+   setUser: {
+      path: '/setUser',
+      component: <SetUser/>,
    },
 
    default: {

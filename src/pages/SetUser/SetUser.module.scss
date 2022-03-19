@@ -1,0 +1,42 @@
+@import "../../scss/mexins.scss";
+@import "../../scss/variables.scss";
+
+.setUser {
+  width: 100vw;
+  height: 100vh;
+
+  .settingBlock {
+    width: min(700px, 100%);
+    height: min(800px, 100%);
+    margin: auto;
+    padding: 2em;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+
+    @include background();
+
+    .head {
+      width: 100%;
+      flex: 0 0 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      @include lowShine($aqua);
+    }
+
+    .body {
+      width: 100%;
+      flex: 1 1 100%;
+    }
+
+    .buttons {
+      width: 100%;
+      flex: 0 0 50px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+  }
+}

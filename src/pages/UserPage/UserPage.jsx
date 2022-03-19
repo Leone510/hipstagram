@@ -1,8 +1,8 @@
-import styles from "./SettingPage.module.scss";
+import styles from "./UserPage.module.scss";
 import { Header } from "../../components/Header/Header";
 import { MainSetting } from "./MainSetting/MainSetting";
 
-export const SettingPage = () => {
+export const UserPage = () => {
 
    return (
       <div className={styles.setting}>

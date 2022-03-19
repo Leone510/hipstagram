@@ -14,8 +14,8 @@ export const ButtonsBox = ({page}) => {
    const toHome = () => {
       navigate('/rootPage');
    }
-   const toSetting = () => {
-      navigate('/settingPage');
+   const toUser = () => {
+      navigate('/userPage');
    }
    const toCreate = () => {
       navigate('/createPost');
@@ -31,7 +31,7 @@ export const ButtonsBox = ({page}) => {
             <MdOutlineCreateNewFolder color="aqua" size="1.5rem"/>
          </SmallButton>
 
-         <SmallButton onClick={toSetting} active={page === "setting"}>
+         <SmallButton onClick={toUser} active={page === "user"}>
             <GoGear color="aqua" size="1.5rem"/>
          </SmallButton>
 

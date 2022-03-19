@@ -36,7 +36,7 @@ export const MainHead = ({innerBody}) => {
          <div className={styles.userInfo}>
             <div className={styles.title}>
                <h1>Nickname: {login}</h1>
-               <SmallButton>
+               <SmallButton onClick={() => navigate("/setUser")}>
                   <BsPencilSquare size="1.5rem" color="aqua"/>
                </SmallButton>
             </div>
