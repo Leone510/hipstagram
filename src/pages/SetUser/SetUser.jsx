@@ -10,9 +10,10 @@ import { useEffect, useState } from "react";
 import { Preload } from "../../components/Preload/Preload";
 import { InputWrapper } from "../../components/InputWrapper/InputWrapper";
 import { Input } from "../../components/Input/Input";
+import { FileInput } from "../../components/FileInput/FileInput";
 
 export const SetUser = () => {
-   const {register, handleSubmit, reset, formState: { errors }} = useForm({
+   const {register, control, handleSubmit, reset, formState: { errors }} = useForm({
       resolver: yupResolver(schema),
       mode: "onBlur",
    })
@@ -58,6 +59,8 @@ export const SetUser = () => {
                         title="SET USER" 
                         buttons={buttons}
                      >
+                        <FileInput name="avatar" control={control}/>
+
                         <InputWrapper 
                            fieldName="Login"
                            error={!!errors.login?.message ? errors.login?.message : " "}

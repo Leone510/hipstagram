@@ -4,7 +4,7 @@ const initialState = {
    surname: null,
    email: null,
    login: null,
-   avatar: null,
+   avatar: '/img/avatarPlaceholder.png',
    posts: null,
    followers: null,
    following: null,

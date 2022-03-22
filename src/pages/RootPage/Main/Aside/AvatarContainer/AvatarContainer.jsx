@@ -18,7 +18,7 @@ export const AvatarContainer = () => {
 
    const validateAvatar = !!avatar
       ? avatar
-      : "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"
+      : process.env.PUBLIC_URL + "/img/avatarPlaceholder.png"
 
    return (
       <div className={styles.avatarContainer}>
