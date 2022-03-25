@@ -5,6 +5,7 @@ import { SmallButton } from "../../../../components/buttons/SmallButton/SmallBut
 import { useNavigate } from "react-router";
 import { useEffect } from "react";
 import { BsPencilSquare } from 'react-icons/bs';
+import { AvatarBox } from "../../../../components/AvatarBox/AvatarBox";
 
 export const MainHead = ({innerBody}) => {
    const navigate = useNavigate();
@@ -21,28 +22,26 @@ export const MainHead = ({innerBody}) => {
 
    const validateAvatar = !!avatar
       ? avatar
-      : "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"
+      : process.env.PUBLIC_URL + "/img/avatarPlaceholder.png"
 
-   const validateName = !!name ? name : " ";
-   const validateSurname = !!surname ? surname : " ";
+   const validateName = !!name ? name : "empty";
+   const validateSurname = !!surname ? surname : "empty";
 
 
    return (
       <div className={styles.head}>
-         <div className={styles.avatarBox}>
-            <img className={styles.img} src={validateAvatar} alt="avatar" />
-         </div>
+         <AvatarBox imgSrc={validateAvatar}/>
 
          <div className={styles.userInfo}>
-            <div className={styles.title}>
-               <h1>Nickname: {login}</h1>
+            <div className={styles.titleBox}>
+               <h1 className={styles.title}>Nickname: {login}</h1>
                <SmallButton onClick={() => navigate("/setUser")}>
                   <BsPencilSquare size="1.5rem" color="aqua"/>
                </SmallButton>
             </div>
 
             <div className={styles.nameSurname}>
-               <h2>First Name: Test<br/>Last Name: Test</h2>
+               <h2>First Name: {validateName}<br/>Last Name: {validateSurname}</h2>
             </div>
 
             <div className={styles.buttons}>

@@ -1,10 +1,10 @@
 const initialState = {
    id: null,
-   name: null,
-   surname: null,
-   email: null,
-   login: null,
-   avatar: '/img/avatarPlaceholder.png',
+   name: "",
+   surname: "",
+   email: "",
+   login: "",
+   avatar: process.env.PUBLIC_URL + "/img/avatarPlaceholder.png",
    posts: null,
    followers: null,
    following: null,
@@ -13,18 +13,19 @@ const initialState = {
 
 const storeControl = {
    GET_CURRENT_USER: (state, payload) => {
+      
       return {
          ...state,
          id: payload.id,
-         name: payload.name,
-         surname: payload.surname,
+         name: payload.firstName,
+         surname: payload.lastName,
          email: payload.email,
          login: payload.login,
          avatar: payload.avatar,
          posts: payload.posts,
          followers: payload.followers,
          following: payload.following,
-         preload: true,
+         preload: false,
       }
    },
    

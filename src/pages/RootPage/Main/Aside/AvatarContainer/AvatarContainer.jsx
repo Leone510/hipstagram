@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router";
+import { AvatarBox } from "../../../../../components/AvatarBox/AvatarBox";
 import styles from "./AvatarContainer.module.scss";
 
 export const AvatarContainer = () => {
@@ -24,9 +25,7 @@ export const AvatarContainer = () => {
       <div className={styles.avatarContainer}>
          <h2 className={styles.nickname}>{login}</h2>
          <p className={styles.name}>{nameSurname(name, surname)}</p>
-         <div onClick={toSetting} className={styles.avatarBox}>
-            <img className={styles.img} src={validateAvatar} alt="avatar" />
-         </div>
+         <AvatarBox onClick={toSetting} imgSrc={validateAvatar}/>
       </div>
    )
 }

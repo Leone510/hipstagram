@@ -11,11 +11,20 @@ import { Preload } from "../../components/Preload/Preload";
 import { InputWrapper } from "../../components/InputWrapper/InputWrapper";
 import { Input } from "../../components/Input/Input";
 import { FileInput } from "../../components/FileInput/FileInput";
+import { useSelector } from "react-redux";
 
 export const SetUser = () => {
+   const userData = useSelector(store => store.currentUser);
    const {register, control, handleSubmit, reset, formState: { errors }} = useForm({
       resolver: yupResolver(schema),
       mode: "onBlur",
+      defaultValues: {
+         login: userData.login,
+         avatar: userData.avatar,
+         name: userData.name,
+         surname: userData.surname,
+         email: userData.email,
+      }
    })
    const [preload, setPreload] = useState(false);
    const navigate = useNavigate();
