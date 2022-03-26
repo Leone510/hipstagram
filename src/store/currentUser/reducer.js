@@ -1,7 +1,7 @@
 const initialState = {
    id: null,
-   name: "",
-   surname: "",
+   firstName: "",
+   lastName: "",
    email: "",
    login: "",
    avatar: process.env.PUBLIC_URL + "/img/avatarPlaceholder.png",
@@ -12,16 +12,41 @@ const initialState = {
 }
 
 const storeControl = {
-   GET_CURRENT_USER: (state, payload) => {
+   // GET_CURRENT_USER: (state, payload) => {
+
+   //    const avatar = payload.avatar === ""
+   //       ? process.env.PUBLIC_URL + "/img/avatarPlaceholder.png"
+   //       : payload.avatar
+      
+   //    return {
+   //       ...state,
+   //       id: payload.id,
+   //       firstName: payload.firstName,
+   //       lastName: payload.lastName,
+   //       email: payload.email,
+   //       login: payload.login,
+   //       avatar: avatar,
+   //       posts: payload.posts,
+   //       followers: payload.followers,
+   //       following: payload.following,
+   //       preload: false,
+   //    }
+   // },
+
+   SET_CURRENT_USER: (state, payload) => {
+
+      const avatar = payload.avatar === ""
+         ? process.env.PUBLIC_URL + "/img/avatarPlaceholder.png"
+         : payload.avatar
       
       return {
          ...state,
          id: payload.id,
-         name: payload.firstName,
-         surname: payload.lastName,
+         firstName: payload.firstName,
+         lastName: payload.lastName,
          email: payload.email,
          login: payload.login,
-         avatar: payload.avatar,
+         avatar: avatar,
          posts: payload.posts,
          followers: payload.followers,
          following: payload.following,

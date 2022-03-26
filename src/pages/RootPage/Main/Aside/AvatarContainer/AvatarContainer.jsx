@@ -4,7 +4,7 @@ import { AvatarBox } from "../../../../../components/AvatarBox/AvatarBox";
 import styles from "./AvatarContainer.module.scss";
 
 export const AvatarContainer = () => {
-   const {login, name, surname, avatar} = useSelector(store => store.currentUser);
+   const {login, firstName, lastName, avatar} = useSelector(store => store.currentUser);
    const navigate = useNavigate();
 
    const toSetting = () => {
@@ -24,7 +24,7 @@ export const AvatarContainer = () => {
    return (
       <div className={styles.avatarContainer}>
          <h2 className={styles.nickname}>{login}</h2>
-         <p className={styles.name}>{nameSurname(name, surname)}</p>
+         <p className={styles.name}>{nameSurname(firstName, lastName)}</p>
          <AvatarBox onClick={toSetting} imgSrc={validateAvatar}/>
       </div>
    )

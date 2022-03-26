@@ -3,22 +3,21 @@ import { Controller } from "react-hook-form";
 import Dropzone from 'react-dropzone';
 import { AvatarBox } from "../AvatarBox/AvatarBox";
 import { MdOutlineAddAPhoto } from "react-icons/md";
+import { useState } from "react";
 
-export const FileInput = ({control, name}) => {
+export const FileInput = ({control, name, defaultAvatar}) => {
+   const [showAvatar, setShowAvatar] = useState(defaultAvatar);
 
-   const validateAvatar = (avatarSrc) => {
-      if (Array.isArray(avatarSrc)) {
-         return (
-            process.env.PUBLIC_URL + `/img/${avatarSrc[0].path}`
-         )
+   const showFile = (data) => {
+      if (typeof data === "string") {
+         setShowAvatar(data);
       } else {
-         const srcArr = avatarSrc.split("/")
-         return (
-            srcArr[1] = "hipstagram"
-               ? process.env.PUBLIC_URL + "/" + srcArr.slice(2).join("/")
-               : process.env.PUBLIC_URL + "/img/avatar.png"
-         )
-      }
+         const reader = new FileReader();
+         reader.readAsDataURL(data[0]);
+         reader.onload = () => {
+            setShowAvatar(reader.result);
+         }
+      }  
    }
 
    return (
@@ -32,8 +31,10 @@ export const FileInput = ({control, name}) => {
                {
                   ({ getRootProps, getInputProps}) => (
                      <div className={styles.dropZone} {...getRootProps()}>
+                        {showFile(value)}
                         <input {...getInputProps()} name={name} onBlur={onBlur}/>
-                        <AvatarBox imgSrc={validateAvatar(value)}>
+                        
+                        <AvatarBox imgSrc={showAvatar}>
                            <div className={styles.btn}>
                               <MdOutlineAddAPhoto size="5rem"/>
                            </div>

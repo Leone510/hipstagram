@@ -5,7 +5,7 @@ export const currentUserThunk = (token) => {
    return async dispatch => {
       try {
          const userData = await getCurrentUser(token);
-         dispatch(currentUserActions.getCurrentUser(userData));
+         dispatch(currentUserActions.setCurrentUser(userData));
       } catch (e) {
          console.log(e);
       }

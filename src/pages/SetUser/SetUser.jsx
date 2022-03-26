@@ -11,18 +11,20 @@ import { Preload } from "../../components/Preload/Preload";
 import { InputWrapper } from "../../components/InputWrapper/InputWrapper";
 import { Input } from "../../components/Input/Input";
 import { FileInput } from "../../components/FileInput/FileInput";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { setUserThunk } from "../../store/thunks/setUserThunk";
 
 export const SetUser = () => {
    const userData = useSelector(store => store.currentUser);
-   const {register, control, handleSubmit, reset, formState: { errors }} = useForm({
+   const dispatch = useDispatch();
+   const {register, control, handleSubmit, formState: { errors }} = useForm({
       resolver: yupResolver(schema),
       mode: "onBlur",
       defaultValues: {
          login: userData.login,
          avatar: userData.avatar,
-         name: userData.name,
-         surname: userData.surname,
+         firstName: userData.name,
+         lastName: userData.surname,
          email: userData.email,
       }
    })
@@ -33,23 +35,15 @@ export const SetUser = () => {
       setPreload(false)
    }, [])
 
-   const sendForm = async (event) => {
-      reset();
-      setPreload(true);
-      // try {
-      //    await registrationUserRequest(JSON.stringify(event));
-      //    navigate(`/confirm/User ${event.login} was created!`)
-      // } catch (promise) {
-      //    const errorMessage = promise.response.data
-      //    navigate(`/error/${errorMessage}`)
-      // }
+   const sendForm = async (data) => {
+      await dispatch(setUserThunk(data));
+      navigate("/setUser");
    }
 
    const buttons = [
       <Button onClick={() => navigate("/userPage")} key="navigate">CLOSE</Button>,
 
       <Button 
-         onClick={() => navigate("/userPage")}
          type="submit"
          key="submit"
       >
@@ -68,7 +62,11 @@ export const SetUser = () => {
                         title="SET USER" 
                         buttons={buttons}
                      >
-                        <FileInput name="avatar" control={control}/>
+                        <FileInput 
+                           name="avatar" 
+                           control={control} 
+                           defaultAvatar={userData.avatar}
+                        />
 
                         <InputWrapper 
                            fieldName="Login"
@@ -79,16 +77,16 @@ export const SetUser = () => {
 
                         <InputWrapper 
                            fieldName="Name"
-                           error={!!errors.name?.message ? errors.name?.message : " "}
+                           error={!!errors.firstName?.message ? errors.firstName?.message : " "}
                         >
-                           <Input {...register('name')}/>
+                           <Input {...register('firstName')}/>
                         </InputWrapper>
 
                         <InputWrapper 
                            fieldName="Surname"
-                           error={!!errors.surname?.message ? errors.surname?.message : " "}
+                           error={!!errors.lastName?.message ? errors.lastName?.message : " "}
                         >
-                           <Input {...register('surname')}/>
+                           <Input {...register('lastName')}/>
                         </InputWrapper>
 
                         <InputWrapper 

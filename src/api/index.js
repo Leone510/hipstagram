@@ -47,3 +47,10 @@ export const getCurrentUser = (data) => {
       data,
    )
 }
+
+export const setUser = (data) => {
+   return api.patch(
+      '/users/current',
+      data,
+   )
+}

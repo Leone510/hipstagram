@@ -1,4 +1,3 @@
-import { Children } from "react";
 import styles from "./AvatarBox.module.scss";
 
 export const AvatarBox = ({children, imgSrc}) => {

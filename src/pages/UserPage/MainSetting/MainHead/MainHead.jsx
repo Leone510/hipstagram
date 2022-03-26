@@ -11,8 +11,8 @@ export const MainHead = ({innerBody}) => {
    const navigate = useNavigate();
    const {
       avatar, 
-      name, 
-      surname, 
+      firstName, 
+      lastName, 
       login, 
    } = useSelector(store => store.currentUser);
 
@@ -24,8 +24,8 @@ export const MainHead = ({innerBody}) => {
       ? avatar
       : process.env.PUBLIC_URL + "/img/avatarPlaceholder.png"
 
-   const validateName = !!name ? name : "empty";
-   const validateSurname = !!surname ? surname : "empty";
+   const validateName = !!firstName ? firstName : "unset";
+   const validateSurname = !!lastName ? lastName : "unset";
 
 
    return (

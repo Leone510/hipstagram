@@ -49,12 +49,12 @@ export const setUserSchema = yup.object().shape({
             .strict(true)
             .required('Login is required...')
             .matches(/[a-zA-Z]/, 'Login can only contain Latin letters.'),
-      name: yup
+      firstName: yup
             .string()
             .strict(true)
             .required('Name is required...')
             .matches(/[a-zA-Z]/, 'Name can only contain Latin letters.'),
-      surname: yup
+      lastName: yup
             .string()
             .strict(true)
             .required('Surname is required...')
