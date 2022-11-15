@@ -12,12 +12,12 @@
   @include backgroundLight();
 
   .nickname {
-    @include midShine($aqua);
+    @include highShine($aqua);
   }
 
   .name {
     margin-bottom: 10px;
 
-    @include midShine($purple);
+    @include highShine($purple);
   }
 }
