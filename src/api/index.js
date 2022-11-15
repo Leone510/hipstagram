@@ -23,6 +23,7 @@ api.interceptors.response.use((response) => {
       logout();
       return;
    }
+   console.log('iterceptors error:', error);
    const lol = Promise.reject(error);
    return lol;
 });
