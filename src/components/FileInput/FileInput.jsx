@@ -11,7 +11,7 @@ export const FileInput = ({control, name, defaultAvatar}) => {
    const showFile = (data) => {
       if (typeof data === "string") {
          setShowAvatar(data);
-      } else {
+      } else if (data.length > 0) {
          const reader = new FileReader();
          reader.readAsDataURL(data[0]);
          reader.onload = () => {
@@ -32,7 +32,7 @@ export const FileInput = ({control, name, defaultAvatar}) => {
                   ({ getRootProps, getInputProps}) => (
                      <div className={styles.dropZone} {...getRootProps()}>
                         {showFile(value)}
-                        <input {...getInputProps()} name={name} onBlur={onBlur}/>
+                        <input {...getInputProps()} onBlur={onBlur}/>
                         
                         <AvatarBox imgSrc={showAvatar}>
                            <div className={styles.btn}>
