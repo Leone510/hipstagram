@@ -3,8 +3,7 @@ import { SmallButton } from "../../buttons/SmallButton/SmallButton";
 import { UseLogout } from "../../../customHooks/UseLogout";
 import { IoMdPower } from "react-icons/io";
 import { HiOutlineHome } from "react-icons/hi";
-import { MdOutlineCreateNewFolder } from "react-icons/md";
-import { GoGear } from "react-icons/go";
+import { MdOutlineCreateNewFolder, MdAccountCircle } from "react-icons/md";
 import { useNavigate } from "react-router";
 
 export const ButtonsBox = ({page}) => {
@@ -32,7 +31,7 @@ export const ButtonsBox = ({page}) => {
          </SmallButton>
 
          <SmallButton onClick={toUser} active={page === "user"}>
-            <GoGear color="aqua" size="1.5rem"/>
+            <MdAccountCircle color="aqua" size="1.5rem"/>
          </SmallButton>
 
          <SmallButton onClick={logout}>
