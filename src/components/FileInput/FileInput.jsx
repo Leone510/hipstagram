@@ -12,13 +12,14 @@ export const FileInput = ({control, name, defaultAvatar}) => {
       if (typeof data === "string") {
          setShowAvatar(data);
       } else if (data.length > 0) {
+
          const reader = new FileReader();
          reader.readAsDataURL(data[0]);
          reader.onload = () => {
             setShowAvatar(reader.result);
          }
-      }  
-   }
+      }
+   }  
 
    return (
       <Controller

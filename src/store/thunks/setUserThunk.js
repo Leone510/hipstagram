@@ -3,12 +3,22 @@ import { currentUserActions } from "../currentUser/actionTypes";
 
 export const setUserThunk = (data) => {
 
-   const ImageFileToUpload = async (image) => {
-      if (typeof(image) !== "string") {
-         const base64 = await convertToBase64(image);
-         return base64;
+   const ImageFileToUpload = async (imageFile) => {
+      if (typeof(imageFile) !== "string") {
+
+         const base64 = await convertToBase64(imageFile);
+
+         const createdImg = new Image();
+         createdImg.src = base64;
+         
+         const canvasAvatar = document.createElement("canvas")
+         canvasAvatar.width = 200;
+         canvasAvatar.height = 200;
+         canvasAvatar.getContext("2d").drawImage(createdImg, 0, 0, 200, 200)
+         
+         return canvasAvatar.toDataURL();
       }
-      return image;
+      return imageFile;
    }
 
    const convertToBase64 = (file) => {
@@ -16,7 +26,7 @@ export const setUserThunk = (data) => {
          const reader = new FileReader();
          reader.readAsDataURL(file);
          reader.onload = () => {
-            console.log(' converting: ', reader.result);
+            // console.log(' converting: ', reader.result);
             
             resolve(reader.result);
          }
@@ -35,7 +45,7 @@ export const setUserThunk = (data) => {
       
       try {
          const userData = await setUser(JSON.stringify(data));
-         console.log(userData);
+         console.log("dispathing: ",userData);
          
          dispatch(currentUserActions.setCurrentUser(userData));
       } catch (err) {

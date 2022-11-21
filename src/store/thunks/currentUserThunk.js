@@ -7,7 +7,7 @@ export const currentUserThunk = (token) => {
          const userData = await getCurrentUser(token);
          dispatch(currentUserActions.setCurrentUser(userData));
       } catch (e) {
-         console.log(e);
+         console.log(e.mesage);
       }
    }
 }
