@@ -7,7 +7,7 @@ import { useEffect } from "react";
 import { BsPencilSquare } from 'react-icons/bs';
 import { AvatarBox } from "../../../../components/AvatarBox/AvatarBox";
 
-export const MainHead = ({innerBody}) => {
+export const MainHead = ({innerBody, setBody}) => {
    const navigate = useNavigate();
    const {
       avatar, 
@@ -19,6 +19,14 @@ export const MainHead = ({innerBody}) => {
    useEffect(() => {
       if (login === null) navigate("/rootPage");
    }, [])
+
+   const setingBodyToPosts = () => {
+      setBody("posts")
+   }
+
+   const setingBodyToFollow = () => {
+      setBody("follow")
+   }
 
    const validateAvatar = !!avatar
       ? avatar
@@ -45,10 +53,10 @@ export const MainHead = ({innerBody}) => {
             </div>
 
             <div className={styles.buttons}>
-               <Button active={innerBody === "posts"}>
+               <Button onClick={setingBodyToPosts} active={innerBody === "posts"}>
                   Posts
                </Button>
-               <Button active={innerBody === "follow"}>
+               <Button onClick={setingBodyToFollow} active={innerBody === "follow"}>
                   Followers
                </Button>
             </div>
