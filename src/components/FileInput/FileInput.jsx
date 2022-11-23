@@ -6,17 +6,17 @@ import { MdOutlineAddAPhoto } from "react-icons/md";
 import { useState } from "react";
 
 export const FileInput = ({control, name, defaultAvatar}) => {
-   const [showAvatar, setShowAvatar] = useState(defaultAvatar);
+   const [preview, setPreview] = useState(defaultAvatar);
 
    const showFile = (data) => {
       if (typeof data === "string") {
-         setShowAvatar(data);
+         setPreview(data);
       } else if (data.length > 0) {
 
          const reader = new FileReader();
          reader.readAsDataURL(data[0]);
          reader.onload = () => {
-            setShowAvatar(reader.result);
+            setPreview(reader.result);
          }
       }
    }  
@@ -35,7 +35,7 @@ export const FileInput = ({control, name, defaultAvatar}) => {
                         {showFile(value)}
                         <input {...getInputProps()} onBlur={onBlur}/>
                         
-                        <AvatarBox imgSrc={showAvatar}>
+                        <AvatarBox imgSrc={preview}>
                            <div className={styles.btn}>
                               <MdOutlineAddAPhoto size="5rem"/>
                            </div>
