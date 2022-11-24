@@ -64,3 +64,10 @@ export const setUserSchema = yup.object().shape({
             .email()
             .required('Email is required...'),
 })
+
+export const createPostSchema = yup.object().shape({
+      postName: yup
+            .string()
+            .strict(true),
+      
+})
