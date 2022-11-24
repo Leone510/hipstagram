@@ -2,8 +2,9 @@
 @import "../../scss/variables.scss";
 
 .dropZone {
-  width: 300px;
-  height: 300px;
+  width: 100%;
+  height: 100%;
+  flex: 1 0 300px;
   position: relative;
   border-radius: 50%;
   cursor: pointer;
@@ -20,7 +21,6 @@
     border-radius: 50%;
     background: transparent;
     border: unset;
-    cursor: pointer;
     z-index: 10;
 
     @include lowShine($aqua);
@@ -46,7 +46,6 @@
     align-items: center;
     background: transparent;
     border: unset;
-    cursor: pointer;
     z-index: 10;
 
     @include lowShine($aqua);

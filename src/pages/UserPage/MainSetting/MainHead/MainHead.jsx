@@ -5,7 +5,8 @@ import { SmallButton } from "../../../../components/buttons/SmallButton/SmallBut
 import { useNavigate } from "react-router";
 import { useEffect } from "react";
 import { BsPencilSquare } from 'react-icons/bs';
-import { AvatarBox } from "../../../../components/AvatarBox/AvatarBox";
+import { ImageBox } from "../../../../components/ImageBox/ImageBox";
+import { AvatarImageWrapper } from "../../../../components/AvatarImageWrapper/AvatarImageWrapper";
 
 export const MainHead = ({innerBody, setBody}) => {
    const navigate = useNavigate();
@@ -38,7 +39,9 @@ export const MainHead = ({innerBody, setBody}) => {
 
    return (
       <div className={styles.head}>
-         <AvatarBox imgSrc={validateAvatar}/>
+         <AvatarImageWrapper>
+            <ImageBox imgSrc={validateAvatar}/>
+         </AvatarImageWrapper>
 
          <div className={styles.userInfo}>
             <div className={styles.titleBox}>

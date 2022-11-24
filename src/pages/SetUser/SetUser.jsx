@@ -13,6 +13,7 @@ import { Input } from "../../components/Input/Input";
 import { FileInput } from "../../components/FileInput/FileInput";
 import { useDispatch, useSelector } from "react-redux";
 import { setUserThunk } from "../../store/thunks/setUserThunk";
+import { AvatarImageWrapper } from "../../components/AvatarImageWrapper/AvatarImageWrapper";
 
 export const SetUser = () => {
    const userData = useSelector(store => store.currentUser);
@@ -62,11 +63,13 @@ export const SetUser = () => {
                         title="SET USER" 
                         buttons={buttons}
                      >
-                        <FileInput 
-                           name="avatar" 
-                           control={control} 
-                           defaultAvatar={userData.avatar}
-                        />
+                        <AvatarImageWrapper>
+                           <FileInput 
+                              name="avatar" 
+                              control={control} 
+                              defaultImage={userData.avatar}
+                           />   
+                        </AvatarImageWrapper>
 
                         <InputWrapper 
                            fieldName="Login"

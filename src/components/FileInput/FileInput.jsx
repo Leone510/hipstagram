@@ -1,12 +1,12 @@
 import styles from "./FileInput.module.scss";
 import { Controller } from "react-hook-form";
 import Dropzone from 'react-dropzone';
-import { AvatarBox } from "../AvatarBox/AvatarBox";
+import { ImageBox } from "../ImageBox/ImageBox";
 import { MdOutlineAddAPhoto } from "react-icons/md";
 import { useState } from "react";
 
-export const FileInput = ({control, name, defaultAvatar}) => {
-   const [preview, setPreview] = useState(defaultAvatar);
+export const FileInput = ({control, name, defaultImage}) => {
+   const [preview, setPreview] = useState(defaultImage);
 
    const showFile = (data) => {
       if (typeof data === "string") {
@@ -35,11 +35,11 @@ export const FileInput = ({control, name, defaultAvatar}) => {
                         {showFile(value)}
                         <input {...getInputProps()} onBlur={onBlur}/>
                         
-                        <AvatarBox imgSrc={preview}>
+                        <ImageBox imgSrc={preview}>
                            <div className={styles.btn}>
                               <MdOutlineAddAPhoto size="5rem"/>
                            </div>
-                        </AvatarBox>
+                        </ImageBox>
                      </div>
                   )
                }

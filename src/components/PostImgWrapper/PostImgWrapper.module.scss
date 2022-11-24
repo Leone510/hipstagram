@@ -1,0 +1,10 @@
+@import "../../scss/variables.scss";
+
+.postImageWrapper {
+   margin-top: 10px;
+   width: 100%;
+   height: min(50vw, 500px);
+   border-radius: 10px;
+   overflow: hidden;
+   box-shadow: 0px 0px 20px rgba($aqua, 0.5);
+}
