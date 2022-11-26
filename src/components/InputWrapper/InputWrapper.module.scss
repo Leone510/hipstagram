@@ -16,6 +16,8 @@
 }
 
 .error {
+  margin: 5px 0;
   color: $red;
   @include midShine($red);
+  font-size: 0.9rem;
 }
