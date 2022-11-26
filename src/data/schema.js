@@ -66,8 +66,8 @@ export const setUserSchema = yup.object().shape({
 })
 
 export const createPostSchema = yup.object().shape({
-      postName: yup
+      title: yup
             .string()
-            .strict(true),
-      
+            .strict(true)
+            .required('Post name is required...')
 })
