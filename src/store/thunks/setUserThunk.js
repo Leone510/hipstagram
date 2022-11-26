@@ -37,16 +37,10 @@ export const setUserThunk = (data) => {
    }
    
    return async dispatch => {
-      console.log("incoming data:", data);
-
       data.avatar = await ImageFileToUpload(data.avatar[0]);
 
-      console.log("incoming data:", data);
-      
       try {
-         const userData = await setUser(JSON.stringify(data));
-         console.log("dispathing: ",userData);
-         
+         const userData = await setUser(JSON.stringify(data));         
          dispatch(currentUserActions.setCurrentUser(userData));
       } catch (err) {
          console.log(err);
