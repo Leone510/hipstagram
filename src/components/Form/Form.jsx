@@ -1,9 +1,10 @@
+import { forwardRef } from "react";
 import styles from "./Form.module.scss";
 
-export const Form = ({children, buttons, title, ...props}) => {
+export const Form = forwardRef(({children, buttons, title, ...props}, ref) => {
 
    return (
-      <form className={styles.form} {...props}>
+      <form ref={ref} className={styles.form} {...props}>
                <h2 className={styles.title}>
                   {title}
                </h2>
@@ -17,4 +18,4 @@ export const Form = ({children, buttons, title, ...props}) => {
                </div>
             </form>
    )
-}
+})
