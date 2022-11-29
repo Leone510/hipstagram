@@ -1,6 +1,7 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useRef } from "react";
 import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
 import { Button } from "../../../components/buttons/Button/Button";
 import { FileInput } from "../../../components/FileInput/FileInput";
 import { Form } from "../../../components/Form/Form";
@@ -9,27 +10,40 @@ import { InputWrapper } from "../../../components/InputWrapper/InputWrapper";
 import { PostImageWrapper } from "../../../components/PostImgWrapper/PostImgWrapper";
 import { WrapperContainer } from "../../../components/WrapperContainer/WrapperContainer";
 import { createPostSchema as schema } from "../../../data/schema";
+import { createPostThunk } from "../../../store/thunks/createPostThunk";
 import styles from "./CreateMain.module.scss";
 
 export const CreateMain = () => {
+   const dispatch = useDispatch();
    const {register, control, handleSubmit, formState: { errors }} = useForm({
       resolver: yupResolver(schema),
    })
 
    const ref = useRef(null);
 
-   const sendForm = (data) => {
-      // console.log("incoming data :", data);
-      // const formdata = new FormData(ref.current) 
-      // formdata.append("title", "test");
-      // formdata.append("image", data.file[0]);
-      
-      const formData = {
-         title: data.title,
-         image: data.image[0]
-      }
+   const sendForm = async (data) => {
+      console.log("incoming data :", data.image[0]);
 
-      console.log("Form data :", formData);
+      // const formData = new FormData(ref.current) 
+      const formData = new FormData() 
+
+      formData.append("title", data.title);
+      formData.append("image", data.image[0], data.image[0].name);
+      
+      // const formData = {
+      //    title: data.title,
+      //    image: data.image[0]
+      // }
+
+      // const formData = new FormData()
+      // formData.append("title", data.title)
+
+      // console.log('Before thunk :', formData.get("title"));
+      // console.log('Before thunk :', formData.get("image"));
+      // console.log('Before thunk :', formData.keys());
+      
+
+      await dispatch(createPostThunk(formData));
    }
 
    const buttons = [
