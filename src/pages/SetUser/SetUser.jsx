@@ -38,7 +38,7 @@ export const SetUser = () => {
 
    const sendForm = async (data) => {
       await dispatch(setUserThunk(data));
-      navigate("/setUser");
+      navigate("/userPage");
    }
 
    const buttons = [

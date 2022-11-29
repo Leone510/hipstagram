@@ -12,11 +12,13 @@ export const RootPage = () => {
    const navigate = useNavigate();
    const dispatch = useDispatch();
 
+   console.log("User ID: ", userData.id);
+
    useEffect(() => {
       token === null
          ? navigate("/login")
          : dispatch(currentUserThunk(token))
-   }, [token]);
+   }, [token, navigate, dispatch]);
 
    return (
       <div className={styles.rootPage}>
