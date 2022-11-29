@@ -3,8 +3,6 @@ import { currentUserActions } from "../currentUser/actionTypes";
 
 export const createPostThunk = (data) => {
 
-   // console.log('in thunk :', data);
-   
    return async dispatch => {
 
       try {

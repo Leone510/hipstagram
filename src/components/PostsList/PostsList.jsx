@@ -8,9 +8,9 @@ export const PostsList = ({posts}) => {
    return (
       <div className={styles.postsList}>
          <div className={styles.postsList_container}>
-            {posts.length === 0
+            {posts === null || posts.length === 0 
                ? <h2>Not posts yet...</h2>
-               : posts.map(post => <PostBox {...post}/>)
+               : posts.map(post => <PostBox {...post} key={post._id}/>)
             }
          </div>
       </div>
