@@ -7,8 +7,6 @@ export const useLogout = () => {
    const navigate = useNavigate();
 
    const logout = () => {
-      console.log('Logout');
-      
       localStorage.removeItem('hipstagramToken');
       dispatch(authActions.logout());
       navigate("/login")
