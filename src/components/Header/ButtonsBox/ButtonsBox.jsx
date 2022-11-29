@@ -1,13 +1,13 @@
 import styles from "./ButtonsBox.module.scss";
 import { SmallButton } from "../../buttons/SmallButton/SmallButton";
-import { UseLogout } from "../../../customHooks/UseLogout";
+import { useLogout } from "../../../customHooks/UseLogout";
 import { IoMdPower } from "react-icons/io";
 import { HiOutlineHome } from "react-icons/hi";
 import { MdOutlineCreateNewFolder, MdAccountCircle } from "react-icons/md";
 import { useNavigate } from "react-router";
 
 export const ButtonsBox = ({page}) => {
-   const logout = UseLogout();
+   const logout = useLogout();
    const navigate = useNavigate();
 
    const toHome = () => {
