@@ -3,13 +3,17 @@ import { useNavigate } from "react-router";
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import { regSchema as schema } from "../../data/schema";
-import { registrationUserRequest } from "../../api";
+// import { registrationUserRequest } from "../../api";              // for fake DB
 import { Preload } from "../../components/Preload/Preload";
 import { useEffect, useState } from "react";
 import { Button } from "../../components/buttons/Button/Button";
 import { Form } from "../../components/Form/Form";
 import { InputWrapper } from "../../components/InputWrapper/InputWrapper";
 import { Input } from "../../components/Input/Input";
+import { useDispatch } from "react-redux";
+import { currentUserActions } from "../../store/currentUser/actionTypes";
+import { useSelector } from "react-redux";
+import { useFakeAPI } from "../../customHooks/useFakeAPI";
 
 export const Registration = () => {
    const {register, handleSubmit, reset, formState: { errors }} = useForm({
@@ -18,6 +22,12 @@ export const Registration = () => {
    })
    const [preload, setPreload] = useState(false);
    const navigate = useNavigate();
+   const dispatch = useDispatch();
+   const {registration} = useFakeAPI();                             //  for fake DB
+   const currentUser = useSelector(store => store.currentUser);
+
+   console.log(currentUser);
+   
 
    useEffect(() => {
       setPreload(false)
@@ -26,13 +36,16 @@ export const Registration = () => {
    const sendForm = async (event) => {
       reset();
       setPreload(true);
-      try {
-         await registrationUserRequest(JSON.stringify(event));
-         navigate(`/confirm/User ${event.login} was created!`)
-      } catch (promise) {
-         const errorMessage = promise.response.data
-         navigate(`/error/${errorMessage}`)
-      }
+      // try {                                                       //---
+      //    await registrationUserRequest(JSON.stringify(event));    //---
+      //    navigate(`/confirm/User ${event.login} was created!`)    //---
+      // } catch (promise) {                                         // for fake DB
+      //    const errorMessage = promise.response.data               //---
+      //    navigate(`/error/${errorMessage}`)                       //---
+      // }                                                           //---
+
+      dispatch(currentUserActions.fakeRegistration(registration(event)));
+      navigate('/login');
    }
 
    const buttons = [

@@ -65,8 +65,17 @@ const storeControl = {
          ...state,
          posts : newPostsArr,
       }
+   },
+
+   FAKE_REGISTRATION: (state, payload) => {     //---
+      return {                                  //---
+         ...state,                              //---
+         id: payload.id,                        //   for fake DB
+         login: payload.login,                  //---
+         password: payload.password,            //---
+         email: payload.email,                  //---
+      }
    }
-   
 }
 
 const reducer = (state = initialState, action) => {
