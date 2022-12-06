@@ -3,8 +3,6 @@ import styles from "./PostsList.module.scss";
 
 export const PostsList = ({posts}) => {
 
-
-
    return (
       <div className={styles.postsList}>
          <div className={styles.postsList_container}>
