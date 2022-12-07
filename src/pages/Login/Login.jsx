@@ -11,6 +11,8 @@ import { Button } from "../../components/buttons/Button/Button";
 import { Form } from "../../components/Form/Form";
 import { InputWrapper } from "../../components/InputWrapper/InputWrapper";
 import { Input } from "../../components/Input/Input";
+import { authActions } from "../../store/auth/actionTypes";
+import { useFakeAPI } from "../../customHooks/useFakeAPI";
 
 export const Login = () => {
    const {register, handleSubmit, reset, formState: { errors }} = useForm({
@@ -19,6 +21,7 @@ export const Login = () => {
    const [preload, setPreload] = useState(false);
    const navigate = useNavigate();
    const dispatch = useDispatch();
+   const { login } = useFakeAPI();                    //  for fake DB
 
    useEffect(() => {
       setPreload(false)
@@ -28,7 +31,8 @@ export const Login = () => {
       reset();
       setPreload(true);
       try {
-         await dispatch(loginThunk(data));
+         // await dispatch(loginThunk(data));         // for fake DB
+         dispatch(authActions.login(login(data)));    //---
          navigate("/rootPage");
       } catch (promise) {
          const errorMessage = promise.response.data

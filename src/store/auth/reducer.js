@@ -11,12 +11,20 @@ const storeControl = {
          token: payload,
       }
    },
+
    LOGOUT: (state) => {
       return {
          ...state,
          token: null,
       }
    },
+
+   FAKE_LOGIN: (state, payload) => {            //---
+      return {                                  //---
+         ...state,                              //---
+         token: payload                         //   for fake DB
+      }                                         //---
+   },                                           //---
 }
 
 const reducer = (state = initialState, action) => {

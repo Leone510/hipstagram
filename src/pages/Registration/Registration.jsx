@@ -26,9 +26,6 @@ export const Registration = () => {
    const {registration} = useFakeAPI();                             //  for fake DB
    const currentUser = useSelector(store => store.currentUser);
 
-   console.log(currentUser);
-   
-
    useEffect(() => {
       setPreload(false)
    }, [])

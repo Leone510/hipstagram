@@ -75,7 +75,7 @@ const storeControl = {
          password: payload.password,            //---
          email: payload.email,                  //---
       }
-   }
+   },
 }
 
 const reducer = (state = initialState, action) => {

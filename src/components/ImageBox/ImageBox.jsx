@@ -7,9 +7,7 @@ export const ImageBox = ({children, imgSrc}) => {
       src: process.env.PUBLIC_URL + "/img/404.jpg",
       preload: true,
    })
-   console.log('incoming img: ', imgSrc);
-   
-   
+
    useEffect(() => {
       const http = new XMLHttpRequest();
       http.open('HEAD', imgSrc, false);

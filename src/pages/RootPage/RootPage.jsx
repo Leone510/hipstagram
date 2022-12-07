@@ -17,7 +17,8 @@ export const RootPage = () => {
    useEffect(() => {
       token === null
          ? navigate("/login")
-         : dispatch(currentUserThunk(token))
+         // : dispatch(currentUserThunk(token))
+         : console.log(userData);
    }, [token, navigate, dispatch]);
 
    return (
