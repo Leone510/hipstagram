@@ -35,21 +35,14 @@ const storeControl = {
 
    SET_CURRENT_USER: (state, payload) => {
 
-      const avatar = payload.avatar === ""
+      const avatar = (payload.avatar === "") || (payload.avatar === undefined)
          ? process.env.PUBLIC_URL + "/img/avatarPlaceholder.png"
          : payload.avatar
       
       return {
          ...state,
-         id: payload.id,
-         firstName: payload.firstName,
-         lastName: payload.lastName,
-         email: payload.email,
-         login: payload.login,
+         ...payload,
          avatar: avatar,
-         posts: payload.posts,
-         followers: payload.followers,
-         following: payload.following,
          preload: false,
       }
    },
@@ -64,16 +57,6 @@ const storeControl = {
       return {
          ...state,
          posts : newPostsArr,
-      }
-   },
-
-   FAKE_REGISTRATION: (state, payload) => {     //---
-      return {                                  //---
-         ...state,                              //---
-         id: payload.id,                        //   for fake DB
-         login: payload.login,                  //---
-         password: payload.password,            //---
-         email: payload.email,                  //---
       }
    },
 }
