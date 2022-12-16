@@ -1,9 +1,8 @@
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import styles from "./Section.module.scss";
 
 export const Section = () => {
-   const {posts} = useSelector(store => store.currentUser);
-   console.log(posts)
+   // const {posts} = useSelector(store => store.currentUser);
 
    return (
       <section className={styles.section}>

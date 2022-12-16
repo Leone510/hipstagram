@@ -7,7 +7,7 @@ import { UserFollow } from "./UserFollow/UserFollow";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { currentUserThunk } from "../../../store/thunks/currentUserThunk";
+// import { currentUserThunk } from "../../../store/thunks/currentUserThunk"; // for fake DB
 
 export const MainUser = () => {
    const [mainBox, setMainBox] = useState("posts");
@@ -16,7 +16,8 @@ export const MainUser = () => {
 
    useEffect(() => {
       if (currentUser.id === null) {
-         dispatch(currentUserThunk(auth.token))
+         // dispatch(currentUserThunk(auth.token))
+         
       } 
    }, [auth.token, currentUser.id, dispatch])
 

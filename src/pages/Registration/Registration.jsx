@@ -12,7 +12,6 @@ import { InputWrapper } from "../../components/InputWrapper/InputWrapper";
 import { Input } from "../../components/Input/Input";
 import { useDispatch } from "react-redux";
 import { currentUserActions } from "../../store/currentUser/actionTypes";
-import { useSelector } from "react-redux";
 import { useFakeAPI } from "../../customHooks/useFakeAPI";
 
 export const Registration = () => {
@@ -23,12 +22,11 @@ export const Registration = () => {
    const [preload, setPreload] = useState(false);
    const navigate = useNavigate();
    const dispatch = useDispatch();
-   const {registration} = useFakeAPI();                             //  for fake DB
-   const currentUser = useSelector(store => store.currentUser);
+   const { fakeRegistration } = useFakeAPI();                             //  for fake DB
 
    useEffect(() => {
       setPreload(false)
-   }, [])
+   }, []);
 
    const sendForm = async (event) => {
       reset();
@@ -40,8 +38,10 @@ export const Registration = () => {
       //    const errorMessage = promise.response.data               //---
       //    navigate(`/error/${errorMessage}`)                       //---
       // }                                                           //---
-
-      dispatch(currentUserActions.fakeRegistration(registration(event)));
+      const responseId = fakeRegistration(event);
+      console.log('Registration response: ', responseId);
+      
+      dispatch(currentUserActions.setCurrentUser(responseId));
       navigate('/login');
    }
 

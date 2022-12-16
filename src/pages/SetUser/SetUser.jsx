@@ -12,12 +12,15 @@ import { InputWrapper } from "../../components/InputWrapper/InputWrapper";
 import { Input } from "../../components/Input/Input";
 import { FileInput } from "../../components/FileInput/FileInput";
 import { useDispatch, useSelector } from "react-redux";
-import { setUserThunk } from "../../store/thunks/setUserThunk";
+// import { setUserThunk } from "../../store/thunks/setUserThunk";   //  for fake DB
 import { AvatarImageWrapper } from "../../components/AvatarImageWrapper/AvatarImageWrapper";
+import { useFakeAPI } from "../../customHooks/useFakeAPI";
+import { currentUserActions } from "../../store/currentUser/actionTypes";
 
 export const SetUser = () => {
    const userData = useSelector(store => store.currentUser);
    const dispatch = useDispatch();
+   const { setUser } = useFakeAPI();                                 //  for fake DB
    const {register, control, handleSubmit, formState: { errors }} = useForm({
       resolver: yupResolver(schema),
       mode: "onBlur",
@@ -37,8 +40,10 @@ export const SetUser = () => {
    }, [])
 
    const sendForm = async (data) => {
-      await dispatch(setUserThunk(data));
-      navigate("/userPage");
+      // await dispatch(setUserThunk(data));                         //  for fake DB
+      console.log();                              //---
+      dispatch(currentUserActions.setCurrentUser(await setUser(data)));
+      navigate("/userPage");                                     
    }
 
    const buttons = [

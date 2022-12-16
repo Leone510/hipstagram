@@ -1,4 +1,5 @@
 @import "../../scss/mexins.scss";
+@import "../../scss/variables.scss";
 
 .postsList {
   width: 100%;
@@ -12,6 +13,14 @@
     height: 100%;
     overflow: auto;
     border-radius: 20px;
+
+    h2 {
+      margin: 10px 30px;
+      color: $purple;
+      
+      @include midShine($aqua);
+
+    }
   }
 
   @include background();

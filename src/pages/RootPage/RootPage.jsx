@@ -4,22 +4,19 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import { Header } from "../../components/Header/Header";
 import { Main } from "./Main/Main";
-import { currentUserThunk } from "../../store/thunks/currentUserThunk";
+// import { currentUserThunk } from "../../store/thunks/currentUserThunk";
 
 export const RootPage = () => {
-   const {token} = useSelector(store => store.auth);
+   const { token } = useSelector(store => store.auth);
    const userData = useSelector(store => store.currentUser);
    const navigate = useNavigate();
    const dispatch = useDispatch();
 
-   console.log("User ID: ", userData.id);
-
    useEffect(() => {
       token === null
          ? navigate("/login")
-         // : dispatch(currentUserThunk(token))
-         : console.log(userData);
-   }, [token, navigate, dispatch]);
+         : console.log("Root Page: ", userData)
+   }, [token, navigate, dispatch, userData]);
 
    return (
       <div className={styles.rootPage}>
