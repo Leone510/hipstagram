@@ -7,9 +7,10 @@ export const Aside = () => {
    return (
       <aside className={styles.aside}>
          <div className={styles.asideBox}>
-            <AvatarContainer/>
-            <FollowContainer/>
+            <AvatarContainer />
+            <FollowContainer />
          </div>
       </aside>
    )
 }
+

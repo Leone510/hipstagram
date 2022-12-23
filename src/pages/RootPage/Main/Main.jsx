@@ -8,8 +8,8 @@ export const Main = () => {
    return (
       <main className={styles.main}>
          <WrapperContainer>
-            <Aside/>
-            <Section/>
+            <Aside />
+            <Section />
          </WrapperContainer>
       </main>
    )
