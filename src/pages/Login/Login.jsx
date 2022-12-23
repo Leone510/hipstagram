@@ -6,7 +6,7 @@ import { loginSchema as schema } from "../../data/schema";
 import { useEffect, useState } from "react";
 import { Preload } from "../../components/Preload/Preload";
 import { useDispatch } from "react-redux";
-import { loginThunk } from "../../store/thunks/loginThunk";
+// import { loginThunk } from "../../store/thunks/loginThunk";    //  for fake DB
 import { Button } from "../../components/buttons/Button/Button";
 import { Form } from "../../components/Form/Form";
 import { InputWrapper } from "../../components/InputWrapper/InputWrapper";
@@ -21,18 +21,19 @@ export const Login = () => {
    const [preload, setPreload] = useState(false);
    const navigate = useNavigate();
    const dispatch = useDispatch();
-   const { login } = useFakeAPI();                    //  for fake DB
+   const { fakeLogin } = useFakeAPI();                            //  for fake DB
 
    useEffect(() => {
       setPreload(false)
    }, [])
 
-   const onSubmit = async (data) => {
+   const onSubmit = async (userLoginData) => {
       reset();
       setPreload(true);
       try {
-         // await dispatch(loginThunk(data));         // for fake DB
-         dispatch(authActions.login(login(data)));    //---
+         // await dispatch(loginThunk(data));                     // for fake DB
+         const userToken = fakeLogin(userLoginData)               //---
+         dispatch(authActions.login(userToken));                  //---
          navigate("/rootPage");
       } catch (promise) {
          const errorMessage = promise.response.data

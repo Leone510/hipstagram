@@ -1,9 +1,9 @@
 @import "../../scss/variables.scss";
 
 .avatarImageWrapper {
-   margin-top: 10px;
    width: min(300px, calc(100vw - 50px));
-   height: min(300px, calc(100vw - 50px));
+   flex: 300px 0 0;
+   // height: min(300px, calc(100vw - 50px));
    border-radius: 50%;
    overflow: hidden;
    box-shadow: 0px 0px 20px rgba($aqua, 0.5);

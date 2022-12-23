@@ -28,7 +28,7 @@ export const Registration = () => {
       setPreload(false)
    }, []);
 
-   const sendForm = async (event) => {
+   const sendForm = (userRegData) => {
       reset();
       setPreload(true);
       // try {                                                       //---
@@ -38,7 +38,7 @@ export const Registration = () => {
       //    const errorMessage = promise.response.data               //---
       //    navigate(`/error/${errorMessage}`)                       //---
       // }                                                           //---
-      const responseId = fakeRegistration(event);
+      const responseId = fakeRegistration(userRegData);
       console.log('Registration response: ', responseId);
       
       dispatch(currentUserActions.setCurrentUser(responseId));

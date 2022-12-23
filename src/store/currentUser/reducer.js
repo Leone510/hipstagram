@@ -50,9 +50,7 @@ const storeControl = {
    CREATE_POST: (state, payload) => {
       const newPostsArr = [];
 
-      state.posts === null 
-         ? newPostsArr.unshift(payload)
-         : newPostsArr.unshift(payload, ...state.posts)
+      newPostsArr.unshift(payload);
 
       return {
          ...state,

@@ -6,9 +6,9 @@ export const PostsList = ({posts}) => {
    return (
       <div className={styles.postsList}>
          <div className={styles.postsList_container}>
-            {posts === null || posts.length === 0 
+            {posts.length === 0 
                ? <h2>Not posts yet...</h2>
-               : posts.map(post => <PostBox {...post} key={post._id}/>)
+               : posts.map(post => <PostBox {...post} key={post.id}/>)
             }
          </div>
       </div>

@@ -5,7 +5,8 @@ const initialState = {
       lastName: "",
       email: "",
       login: "",
-      avatar: "",
+      password: "",
+      avatar: process.env.PUBLIC_URL + "/img/avatarPlaceholder.png",
       id: "",
       posts: [],
       followers: [],
@@ -14,7 +15,7 @@ const initialState = {
 }
 
 const storeControl = {
-   REGISTRATION: (state, payload) => {
+   CHANGE_USER_DATA: (state, payload) => {
       return {
          ...state,
          user: {
@@ -23,6 +24,21 @@ const storeControl = {
          }
       }
    },
+
+   ADD_POST: (state, payload) => {
+      const newPostsArray = [];
+      newPostsArray.unshift(payload, ...state.user.posts);
+
+      return {
+         ...state,
+         user: {
+            ...state.user,
+            posts: newPostsArray,
+         }
+      }
+   }
+
+   
 }
 
 const reducer = (state = initialState, action) => {
