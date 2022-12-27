@@ -74,10 +74,6 @@ export const useFakeAPI = () => {
          ? avatar
          : await convertToBase64(avatar[0])
 
-      console.log('avatar base64: ', base64);
-      console.log('New Data: ', newData);
-      
-
       dispatch(fakeDBActions.changeUserData({
          avatar: base64,
          ...newData
